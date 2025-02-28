@@ -1,36 +1,34 @@
 body {
-    background-image: url('https://fondosmil.co/fondo/25453.png'); /* Asegúrate de que el nombre del archivo sea correcto */
-    background-size: cover; /* Cubre toda la pantalla */
+    background-image: url('https://fondosmil.co/fondo/25453.png'); 
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
+    background-attachment: fixed; 
 }
-
-
 
 #container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: auto; /* Ajustamos la altura al contenido */
+    padding-bottom: 50px; /* Agregamos un pequeño espacio en la parte inferior */
 }
 
 #snoopy {
     width: 150px;
     position: absolute;
     cursor: pointer;
-    z-index: 20; /* Asegura que esté siempre por encima de otros elementos */
+    z-index: 20;
 }
 
 #message, #photo {
     position: relative;
-    z-index: 10; /* Mantiene las imágenes y mensajes en su lugar */
+    z-index: 10;
 }
-
 
 #message {
     font-size: 13px;
     color: white;
-    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro con transparencia */
+    background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 15px;
     text-align: center;
@@ -39,17 +37,57 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3); /* Efecto de brillo en el texto */
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
     letter-spacing: 1px;
 }
 
 #photo {
     margin-top: 20px;
-    max-width: 330px; /* Ajusta el tamaño máximo */
+    max-width: 330px;
     height: auto;
     border: 2px solid #d63384;
     border-radius: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Media Queries para hacerlo responsivo */
+@media (max-width: 768px) {
+    #message {
+        font-size: 12px;
+        max-width: 80%; /* Aumentamos el ancho máximo del mensaje */
+    }
+
+    #photo {
+        max-width: 80%; /* Reducimos el tamaño de la foto en pantallas pequeñas */
+    }
+
+    #snoopy {
+        width: 120px; /* Ajustamos el tamaño de Snoopy en dispositivos más pequeños */
+    }
+
+    #container {
+        height: auto;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #message {
+        font-size: 11px; /* Ajustamos el tamaño de la fuente para pantallas muy pequeñas */
+        max-width: 90%; /* Hacemos el mensaje aún más ancho en pantallas pequeñas */
+    }
+
+    #photo {
+        max-width: 90%;
+    }
+
+    #snoopy {
+        width: 100px; /* Hacemos que Snoopy sea más pequeño */
+    }
+
+    body {
+        background-attachment: scroll; /* Eliminamos el fondo fijo para móviles */
+    }
 }
